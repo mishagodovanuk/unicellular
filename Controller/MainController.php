@@ -12,8 +12,8 @@ class Main extends Controller
 
 	public function Say()
 	{
-		echo "second controller";
-		var_dump($_GET);
-		die();
+		$this->setTitle('Say action');
+		$data = 'misha godovanuk';
+		$this->render('second', $data);
 	}
 }
