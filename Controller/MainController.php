@@ -1,10 +1,13 @@
 <?php
-class Main 
+include_once 'core/Controller.php';
+
+class Main extends Controller
 {
 	public function Index()
 	{
-		echo "say all work";
-		die();
+		$this->setTitle('Index page of site');
+		$data = 'user';
+		$this->render('index', $data);
 	}
 
 	public function Say()

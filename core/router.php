@@ -13,11 +13,6 @@ class Router
 *Function wich start site
 *
 */
-	public function __construct()
-	{
-		$this->actionName = 'index';
-		$this->controllerName = 'main';
-	}
 
 	public function start()
 	{
@@ -27,6 +22,7 @@ class Router
 		$this->class_Name = ucfirst($this->controllerName);
 		$this->action_Name = ucfirst($this->actionName);
 
+		$this->getViewCookies();
 		$this->getControllerAction();
 	}
 
@@ -76,7 +72,7 @@ class Router
 				$localAction = explode('?', $explodedArray[2]);
 				$this->actionName = $localAction[0];
 			} else $this->actionName = $explodedArray[2];
-			
+
 		} else 
 			$this->actionName = 'index';
 	}
@@ -93,4 +89,14 @@ class Router
 			$this->controllerName = 'main';
 	}
 
+/*
+* Get view cookies 
+*	Set name of action && controller for template && page view
+*/
+
+	public function getViewCookies()
+	{
+		setcookie('controller', $this->class_Name);
+		setcookie('action', $this->action_Name);
+	}
 }
