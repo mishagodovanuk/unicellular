@@ -13,6 +13,12 @@ class Router
 *Function wich start site
 *
 */
+	public function __construct()
+	{
+		$this->actionName = 'index';
+		$this->controllerName = 'main';
+	}
+
 	public function start()
 	{
 		$this->getControllerName();
@@ -22,8 +28,6 @@ class Router
 		$this->action_Name = ucfirst($this->actionName);
 
 		$this->getControllerAction();
-		
-		die();
 	}
 
 /*
@@ -65,14 +69,16 @@ class Router
 	public function getActionName()
 	{
 		$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
-		if(array_key_exists(2, $explodedArray)){
+
+		if(array_key_exists(2, $explodedArray) && !empty($explodedArray[2])){
 					
-					if (strpos($explodedArray[2], '?')) {
-						$localAction = explode('?', $explodedArray[2]);
-						$this->actionName = $localAction[0];
-					}
-					else $this->actionName = $explodedArray[2];
-				}
+			if (strpos($explodedArray[2], '?')) {
+				$localAction = explode('?', $explodedArray[2]);
+				$this->actionName = $localAction[0];
+			} else $this->actionName = $explodedArray[2];
+			
+		} else 
+			$this->actionName = 'index';
 	}
 /*
 *Get controller name
@@ -81,10 +87,10 @@ class Router
 	public function getControllerName()
 	{
 		$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
-		if (array_key_exists(1, $explodedArray)) {
+		if (array_key_exists(1, $explodedArray) && !empty($explodedArray[1])) {
 			$this->controllerName = $explodedArray[1];
 		}else
-			$this->controllerName = 'index';
+			$this->controllerName = 'main';
 	}
 
 }
