@@ -1,28 +1,40 @@
 <?php
+/*
+	Class router content the routing login of website| THE SOURCE OF WEBSITE
+*/
+
 class Router
 {
+	// @var $actionName | url action
 	public $actionName;
 
+	// @var $controllerName | url controller
 	public $controllerName;
 
+	// @var $class_Name | name of executing class
 	public $class_Name;
 
+	// @var $action_Name | name of executing action(function)
 	public $action_Name;
 
 /*
 *Function wich start site
-*
 */
 
 	public function start()
 	{
+		// Get contoller and action names
 		$this->getControllerName();
 		$this->getActionName();
 		
+		// Set Names of executing class and action names
 		$this->class_Name = ucfirst($this->controllerName);
 		$this->action_Name = ucfirst($this->actionName);
 
-		$this->getViewCookies();
+		// Set globals variable 
+		$this->setGlobalsData();
+
+		// Run action
 		$this->getControllerAction();
 	}
 
@@ -86,7 +98,7 @@ class Router
 		if (array_key_exists(1, $explodedArray) && !empty($explodedArray[1])) {
 			$this->controllerName = $explodedArray[1];
 		}else
-			$this->controllerName = 'main';
+			$this->controllerName = 'main';	
 	}
 
 /*
@@ -94,9 +106,9 @@ class Router
 *	Set name of action && controller for template && page view
 */
 
-	public function getViewCookies()
+	public function setGlobalsData()
 	{
-		setcookie('controller', $this->class_Name);
-		setcookie('action', $this->action_Name);
+		$GLOBALS['controller'] = $this->class_Name;
+		$GLOBALS['action'] = $this->action_Name;
 	}
 }

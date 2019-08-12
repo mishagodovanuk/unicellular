@@ -1,0 +1,16 @@
+.about-us-list {
+	margin-top: 15px;
+}
+
+.about-us-list li {
+	margin-bottom: 10px;
+}
+
+.about-us-list li a {
+	margin-right: 10px;
+}
+
+.about-us-list li a img {
+	height: 50px;
+	width: 50px;
+}

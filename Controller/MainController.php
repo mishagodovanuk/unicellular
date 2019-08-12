@@ -1,8 +1,10 @@
 <?php
 include_once 'core/Controller.php';
 
+// Simple Main controller | must extends Controller class
 class Main extends Controller
 {
+	// Index page action
 	public function Index()
 	{
 		$this->setTitle('Index page of site');
@@ -10,10 +12,17 @@ class Main extends Controller
 		$this->render('index', $data);
 	}
 
-	public function Say()
+	// About page action
+	public function About()
 	{
-		$this->setTitle('Say action');
-		$data = 'misha godovanuk';
-		$this->render('second', $data);
+		$this->setTitle('About us');
+		$this->render('about');
+	}
+
+	// Countact page action
+	public function Contact()
+	{
+		$this->setTitle('Contact us');
+		$this->render('contact');	
 	}
 }

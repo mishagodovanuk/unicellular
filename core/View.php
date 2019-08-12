@@ -12,6 +12,7 @@ class View
 	// @var name of page view
 	public $page_content;
 
+	// @var page data
 	public $page_data;
 
 /*
@@ -44,9 +45,10 @@ class View
 	{
 		$this->page_content = $page;
 		$data != NULL ? $this->page_data = $data : 0; 
-
+		
 		if ($layout == null) {
-			$layout = strtolower($_COOKIE['controller']);
+			$layout = strtolower($GLOBALS['controller']);
+			// var_dump($layout);die();
 		}
 			include_once 'View/Templates/' . $layout .'.php';
 	}
@@ -57,6 +59,6 @@ class View
 */
 	public function getBodyContent()
 	{
-		include_once 'View/Pages/' . $_COOKIE['controller']. '/' . $this->page_content . '.php';
+		include_once 'View/Pages/' . $GLOBALS['controller']. '/' . $this->page_content . '.php';
 	}
 }
