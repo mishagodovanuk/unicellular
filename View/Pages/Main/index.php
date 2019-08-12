@@ -1,1 +1,1 @@
-<h1>Hello <?php echo $data; ?></h1>
+<h1>Hello <?php echo $this->page_data; ?></h1>
