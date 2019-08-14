@@ -13,7 +13,7 @@ class Model
 		$model = new mysqli($db_config['host'], $db_config['user'], $db_config['password'], $db_config['dbname']);
 		 $model->query("SET NAMES '{$db_config['coding']}'");
 		if ($mysqli->connect_error) {
-    die('Connect Error (' . $mysqli->connect_errno . ') '
+        	die('Connect Error (' . $mysqli->connect_errno . ') '
             . $mysqli->connect_error);
 
 
