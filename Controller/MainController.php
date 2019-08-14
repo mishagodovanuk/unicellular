@@ -8,9 +8,8 @@ class Main extends Controller
 	// Index page action
 	public function Index()
 	{
+		//$this->redirectTo('main/about');
 		$this->setTitle('Index page of site');
-
-
 		$data = 'user';
 
 		$this->render('index', $data);

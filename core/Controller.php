@@ -9,7 +9,7 @@ class Controller extends View
 {
 
 	//Function get post request
-	public function getRequestPost($key = null)
+	protected function getRequestPost($key = null)
 	{
 		if ($key == null) {
 			
@@ -20,7 +20,7 @@ class Controller extends View
 	}
 
 	// Funtion get $_GET request
-	public function getRequestGet($key = null)
+	protected function getRequestGet($key = null)
 	{
 		if ($key == null) {
 
@@ -28,5 +28,11 @@ class Controller extends View
 		}
 
 		return $_GET[$key];
+	}
+
+	// Redirect function 
+	protected function redirectTo($path)
+	{
+		header("Location: http://{$_SERVER['HTTP_HOST']}/{$path}");
 	}
 }
