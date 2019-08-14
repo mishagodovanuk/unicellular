@@ -35,4 +35,9 @@ class Controller extends View
 	{
 		header("Location: http://{$_SERVER['HTTP_HOST']}/{$path}");
 	}
+
+	public function sendMail($to, $subject, $message)
+	{
+		return mail($to, $subject, $message);
+	}
 }

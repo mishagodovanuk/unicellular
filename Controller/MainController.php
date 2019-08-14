@@ -23,7 +23,9 @@ class Main extends Controller
 	// Countact page action
 	public function Contact()
 	{
+		$data = $this->getRequestPost();
+		$data = $this->sendMail($data['email'], 'Contact site', $data['content']);
 		$this->setTitle('Contact us');
-		$this->render('contact');
+		$this->render('contact', $data);
 	}
 }
