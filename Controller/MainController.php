@@ -9,11 +9,10 @@ class Main extends Controller
 	public function Index()
 	{
 		$this->setTitle('Index page of site');
+
+
 		$data = 'user';
 
-		$model = new Test;
-		var_dump($model->deleteAllData());
-die();
 		$this->render('index', $data);
 	}
 

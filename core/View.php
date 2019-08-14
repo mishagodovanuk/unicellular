@@ -48,7 +48,6 @@ class View
 		
 		if ($layout == null) {
 			$layout = strtolower($GLOBALS['controller']);
-			// var_dump($layout);die();
 		}
 			include_once 'View/Templates/' . $layout .'.php';
 	}

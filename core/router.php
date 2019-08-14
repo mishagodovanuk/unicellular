@@ -26,12 +26,12 @@ class Router
 		// Get contoller and action names
 		$this->getControllerName();
 		$this->getActionName();
-		
+
 		// Set Names of executing class and action names
 		$this->class_Name = ucfirst($this->controllerName);
 		$this->action_Name = ucfirst($this->actionName);
 
-		// Set globals variable 
+		// Set globals variable
 		$this->setGlobalsData();
 
 		// Run action
@@ -54,7 +54,7 @@ class Router
 		}
 		if (method_exists($executeClass, $executeAction)) {
 			$executeClass->$executeAction();
-			}	
+			}
 
 		die();
 	}
@@ -79,13 +79,13 @@ class Router
 		$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
 
 		if(array_key_exists(2, $explodedArray) && !empty($explodedArray[2])){
-					
+
 			if (strpos($explodedArray[2], '?')) {
 				$localAction = explode('?', $explodedArray[2]);
 				$this->actionName = $localAction[0];
 			} else $this->actionName = $explodedArray[2];
 
-		} else 
+		} else
 			$this->actionName = 'index';
 	}
 /*
@@ -95,14 +95,14 @@ class Router
 	public function getControllerName()
 	{
 		$explodedArray = explode('/', $_SERVER['REQUEST_URI']);
-		if (array_key_exists(1, $explodedArray) && !empty($explodedArray[1])) {
+		if (array_key_exists(1, $explodedArray) && !empty($explodedArray[1]) && !strstr($explodedArray[1], '?')) {
 			$this->controllerName = $explodedArray[1];
 		}else
-			$this->controllerName = 'main';	
+			$this->controllerName = 'main';
 	}
 
 /*
-* Get view cookies 
+* Get view cookies
 *	Set name of action && controller for template && page view
 */
 
