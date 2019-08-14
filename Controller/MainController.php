@@ -1,5 +1,6 @@
 <?php
 include_once 'core/Controller.php';
+include_once 'Model/Test.php';
 
 // Simple Main controller | must extends Controller class
 class Main extends Controller
@@ -9,6 +10,10 @@ class Main extends Controller
 	{
 		$this->setTitle('Index page of site');
 		$data = 'user';
+
+		$model = new Test;
+		var_dump($model->deleteAllData());
+die();
 		$this->render('index', $data);
 	}
 
@@ -23,6 +28,6 @@ class Main extends Controller
 	public function Contact()
 	{
 		$this->setTitle('Contact us');
-		$this->render('contact');	
+		$this->render('contact');
 	}
 }
