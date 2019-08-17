@@ -1,5 +1,6 @@
 <?php
 include_once 'core/Controller.php';
+include_once 'Model/Test.php';
 
 // Simple Main controller | must extends Controller class
 class Main extends Controller
@@ -22,7 +23,9 @@ class Main extends Controller
 	// Countact page action
 	public function Contact()
 	{
+		$data = $this->getRequestPost();
+		$data = $this->sendMail($data['email'], 'Contact site', $data['content']);
 		$this->setTitle('Contact us');
-		$this->render('contact');	
+		$this->render('contact', $data);
 	}
 }
