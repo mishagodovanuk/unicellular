@@ -44,12 +44,13 @@ class Router
 */
 	public function getControllerAction()
 	{
+		// var_dump(file_exists('Controller/' . $this->class_Name . 'Controller.php');
+		// die('here');
 		if (file_exists('Controller/' . $this->class_Name . 'Controller.php')) {
 			include_once 'Controller/' . $this->class_Name . 'Controller.php';
 			$executeClass = new $this->class_Name;
 			$executeAction = $this->action_Name;
 		} else {
-
 			$this->pageDontExist();
 		}
 		if (method_exists($executeClass, $executeAction)) {
@@ -65,7 +66,7 @@ class Router
 */
 	public function pageDontExist()
 	{
-		header("Location: core/pages/404.php");
+		header("Location: /core/pages/404.php");
 
 		return (bool)false;
 	}

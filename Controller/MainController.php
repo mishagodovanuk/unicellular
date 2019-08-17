@@ -24,7 +24,7 @@ class Main extends Controller
 	public function Contact()
 	{
 		$data = $this->getRequestPost();
-		$data = $this->sendMail($data['email'], 'Contact site', $data['content']);
+		$this->sendMail($data['email'], 'Contact site', $data['content']);
 		$this->setTitle('Contact us');
 		$this->render('contact', $data);
 	}

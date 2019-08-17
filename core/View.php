@@ -47,7 +47,8 @@ class View
 		$data != NULL ? $this->page_data = $data : 0; 
 		
 		if ($layout == null) {
-			$layout = strtolower($GLOBALS['controller']);
+			//$layout = strtolower($GLOBALS['controller']);
+			$layout = 'main';
 		}
 			include_once 'View/Templates/' . $layout .'.php';
 	}
