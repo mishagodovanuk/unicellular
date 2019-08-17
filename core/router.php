@@ -44,8 +44,6 @@ class Router
 */
 	public function getControllerAction()
 	{
-		// var_dump(file_exists('Controller/' . $this->class_Name . 'Controller.php');
-		// die('here');
 		if (file_exists('Controller/' . $this->class_Name . 'Controller.php')) {
 			include_once 'Controller/' . $this->class_Name . 'Controller.php';
 			$executeClass = new $this->class_Name;
@@ -56,8 +54,6 @@ class Router
 		if (method_exists($executeClass, $executeAction)) {
 			$executeClass->$executeAction();
 			}
-
-		die();
 	}
 
 /*
