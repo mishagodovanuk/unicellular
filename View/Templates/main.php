@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <!-- This function is nessasery for get page title| DEFAULT action name -->
   <title>
-    <?php $this->getTitle();?>   
+    <?php echo $this->getTitle();?>   
   </title>
   <!--  -->
   <!-- Bootstrap core CSS -->

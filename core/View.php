@@ -29,9 +29,9 @@ class View
 	public function getTitle()
 	{
 		if (!empty($this->title)) {
-			echo $this->title;
+			return $this->title;
 		} else 
-			echo $_COOKIE['action'];
+			return $GLOBALS['action'];
 	}
 
 		/*
